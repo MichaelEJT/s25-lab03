@@ -10,7 +10,48 @@ package edu.cmu.cs.cs214.rec04;
  *
  */
 
-public class DelegationSortedIntList {
-    // Write your implementation below with API documentation
+public class DelegationSortedIntList implements IntegerList {
+    private final SortedIntList list;
+    private int totalAdded;
 
+    public DelegationSortedIntList() {
+        this.list = new SortedIntList();
+        this.totalAdded = 0;
+    }
+
+    @Override
+    public boolean add(int value) {
+        totalAdded++;
+        return list.add(value);
+    }
+
+    @Override
+    public boolean addAll(IntegerList otherList) {
+        totalAdded += otherList.size();
+        return list.addAll(otherList);
+    }
+
+    @Override
+    public int get(int index) {
+        return list.get(index);
+    }
+
+    @Override
+    public boolean remove(int index) {
+        return list.remove(index);
+    }
+
+    @Override
+    public boolean removeAll(IntegerList otherList) {
+        return list.removeAll(otherList);
+    }
+
+    @Override
+    public int size() {
+        return list.size();
+    }
+
+    public int getTotalAdded() {
+        return totalAdded;
+    }
 }
