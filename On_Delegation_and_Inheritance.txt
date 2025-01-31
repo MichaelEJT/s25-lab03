@@ -1,0 +1,25 @@
+1. Inheritance creates a tighter coupling and more dependency on the implementation
+details of SortedIntList, because it directly extends it and uses
+multiple superclass methods. On the other hand, delegation creates a looser
+coupling and less dependency on the implementation details of SortedIntList, because
+it only depends on the IntegerList interface and uses public methods of the
+SortedIntList class.
+
+2. Delegation is more likely to break because it will need to satisfy both the
+specifications outlined in the IntegerList interface and the SortedIntList class.
+If the SortedIntList class is changed, the DelegationSortedIntList class may
+need to be updated to match the new implementation. Inheritance, on the other hand,
+only needs to be updated if the SortedIntList class is changed in a way that
+affects the InheritanceSortedIntList class.
+
+3. What issues does using delegation solve that might have been problematic with inheritance?
+
+Using delegation will allow for more flexibility. Delegation allows the class to 
+implement multiple interfaces, which is not possible with inheritance.
+
+4. Based on the provided implementations, when would it be more appropriate to use inheritance and when to use delegation?
+
+Inheritance is more appropriate when the class needs to be a subclass of the superclass.
+(Is-a relationship)
+Delegation is more appropriate when the class needs to implement multiple interfaces.
+(Has-a relationship)
